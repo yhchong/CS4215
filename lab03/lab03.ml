@@ -21,7 +21,7 @@ let rec last_two (xs:'a list) : 'a option =
 last_two [ 'a' ; 'b' ; 'c' ; 'd' ];;
 (* val last_two : 'a list -> 'a option = <fun> *)
 (* - : char option = Some 'c' *)
- 
+
 let ls2 = [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e];;
 
 (* Implement a recursive function that would remove
@@ -29,9 +29,14 @@ let ls2 = [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e];;
    For example:
       compress [1;1;2;2;1] ==> [1;2;1]
 *)
-let compress (xs:'a list) : 'a list =
-  []
-;;
+let rec compress (xs:'a list) : 'a list =
+    match xs with
+    | [] -> []
+    | [x1] -> [x1]
+    | x1::x2::xs ->
+            if x1 == x2
+            then compress (x2::xs)
+            else x1::(compress (x2::xs)) ;;
 
 compress ls2;;
 (* val compress : 'a list -> 'a list = <fun> *)
