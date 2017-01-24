@@ -427,6 +427,14 @@ let pr_args (pr:'a->string) (xs:'a list) : string =
       | x::xs -> (pr x)^","^(aux xs)
   in aux xs;;
 
+let pr_args2 (pr:'a->string) (sep:string) (xs:'a list) : string =
+    let rec aux xs =
+        match xs with
+        | [] -> failwith "pr_args2 must not have [] input"
+        | [x] -> pr x
+        | x::xs -> (pr x)^sep^(aux xs)
+    in aux xs;;
+
 let rec string_of_RT (pr:'a -> string) (xs:'a roseTree) : string =
   match xs with
     | NodeR (v,ls) ->
