@@ -227,7 +227,18 @@ pfactorsM 315;;
       goldbach 8 ==> (3,5)
 *)
 let goldbach (n:int) : (int*int) =
-  (0,0)
+    let primes = allPrimes 1 n in
+    let rec findAdd p primes =
+        match primes with
+        | x::xs -> if p + x == n then Some (p,x) else findAdd p xs
+        | [] -> None in
+    let rec combiner primes =
+        match primes with
+        | x::xs ->
+                match findAdd x xs with
+                | Some (x1, x2) -> (x1, x2)
+                | None -> combiner xs in
+    combiner primes
 ;;
 
 goldbach 28;;
@@ -250,7 +261,9 @@ let bt1 = Node (1,(Leaf 2),Node (3,(Leaf 4),(Leaf 5)));;
      countL (Node(0,(Leaf 0),Node(0,Leaf 0,Leaf 0))) ==> 3
 *)
 let rec countL (t:'a tree) : int =
-  -1
+    match t with
+    | Leaf a -> 1
+    | Node (_, t1, t2) -> (countL t1) + (countL t2)
 ;;
 
 countL bt1;;
@@ -266,7 +279,9 @@ countL bt1;;
 *)
 
 let rec prefixBT (xs:'a tree) : 'a list =
-  []
+    match xs with
+    | Leaf a -> [a]
+    | Node (a, t1, t2) -> a::(prefixBT t1)@(prefixBT t2)
 ;;
 
 prefixBT bt1;;
