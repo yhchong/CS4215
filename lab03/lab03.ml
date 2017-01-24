@@ -386,7 +386,8 @@ prefixRT (NodeR(4,[NodeR (1,[]); NodeR (2,[])]));;
    you in this method.
 *)
 let rec prefixRTHO (xs:'a roseTree) : 'a list =
-  []
+  match xs with
+  | NodeR (x, lrt) -> x::List.fold_right (fun x xs -> (prefixRTHO x)@xs) lrt []
 ;;
 
 
@@ -400,7 +401,8 @@ prefixRTHO rt2;;
    you in this method.
 *)
 let rec postfixRTHO (xs:'a roseTree) : 'a list =
-  []
+    match xs with
+    | NodeR (x, lrt) -> (List.fold_right (fun x xs -> (postfixRTHO x)@xs) lrt [])@[x]
 ;;
 
 postfixRTHO rt2;;
