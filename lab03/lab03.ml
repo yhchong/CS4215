@@ -296,7 +296,9 @@ prefixBT bt1;;
      infixBT (Node(4,Leaf 1, Leaf 2)) ==> [1;4;2]
 *)
 let rec infixBT (xs:'a tree) : 'a list =
-  []
+    match xs with
+    | Leaf a -> [a]
+    | Node (a, t1, t2) -> (prefixBT t1)@[a]@(prefixBT t2)
 ;;
 
 infixBT bt1;;
@@ -311,8 +313,13 @@ infixBT bt1;;
   For example:
     perfectTree 2 ==> Node (1, Leaf 1, Leaf 1)
 *)
+let createNode t1 t2 = Node(1, t1, t2)
 let perfectTree n =
-  Leaf (-1)
+    let rec helper n =
+        if n == 1
+        then Leaf(1)
+        else Node(1, helper (n-1), helper (n-1)) in
+    helper n
 ;;
 
 perfectTree 3;;
@@ -332,7 +339,9 @@ perfectTree 3;;
 *)
 
 let rec prod (xs:'a list) (ys:'b list) : ('a * 'b) list =
-  []
+    match xs with
+    | x::xs -> List.map (fun y -> (x, y)) ys @ prod xs ys
+    | [] -> []
 ;;
 
 prod [1;2] [`a;`b;`c];;
