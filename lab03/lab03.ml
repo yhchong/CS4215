@@ -3,7 +3,7 @@
 
 (* LISTS *)
 
-(* Implement a function that would return the 
+(* Implement a function that would return the
    2nd last element. If only one element exist,
    return than element. For example:
       last_two [1;2;3;4;5] ===> Some 4
@@ -47,8 +47,14 @@ compress ls2;;
    For example:
       removeDupl [1;1;2;2;1] ==> [1;2]
 *)
+
+let no_dupl x xs =
+    if List.mem x xs
+    then xs
+    else x::xs
+
 let removeDupl (xs:'a list) : 'a list =
-  []
+    List.fold_right no_dupl xs []
 ;;
 
 removeDupl ls2;;
@@ -63,8 +69,13 @@ let ls3 = [3;6;7;3;4;8;3;3;3];;
       findFirst (fun x -> x>1) [1;1;2;1;4;1] ==> Some 4
       findFirst (fun x -> x>4) [1;1;2;1;4;1] ==> None
 *)
-let findFirst (p:'a->bool) (xs:'a list) : 'a option =
-   None
+let rec findFirst (p:'a->bool) (xs:'a list) : 'a option =
+    match xs with
+    | x::xs ->
+            if p x
+            then Some x
+            else findFirst p xs
+    | [] -> None
 ;;
 
 findFirst (fun x -> x mod 2 = 0) ls3;;
@@ -81,10 +92,10 @@ let rec findLast (p:'a->bool) (xs:'a list) : 'a option =
   let rec aux ans xs =
     match xs with
       | [] -> ans
-      | y::ys -> 
+      | y::ys ->
         if p y then aux (Some y) ys
         else aux ans ys
-  in None
+  in aux None xs
 ;;
 
 findLast (fun x -> x mod 2 = 0) ls3;;
@@ -92,13 +103,17 @@ findLast (fun x -> x mod 2 = 0) ls3;;
 (* - : int option = Some 8 *)
 
 (* Given a number n>1, generate all possible
-   pairs of positive numbers (a,b) such that n=a+b 
+   pairs of positive numbers (a,b) such that n=a+b
    For example:
      genPairs 3 ===> [(1,2);(2;1)]
 *)
 
 let genPairs (n:int) : (int * int) list =
-  []
+    let rec pairGen curr n =
+        if curr == 0
+        then []
+        else (n-curr, curr)::(pairGen (curr-1) n) in
+    pairGen (n-1) n
 ;;
 
 genPairs 6;;
@@ -115,7 +130,7 @@ genPairs 6;;
 *)
 let isPrime (n:int) : bool =
   let sqrt_n = truncate (sqrt (float n)) in
-  let rec helper k = 
+  let rec helper k =
     if k<=1 then true
     else if n mod k==0 then false
       else helper (k-1) in
@@ -125,16 +140,24 @@ isPrime 13;;
 (* val isPrime : int -> bool = <fun> *)
 (* - : bool = true *)
 
-(* 
-   Given a range of integers by its lower and upper limit, 
-   construct a list of all prime numbers in that range. 
+(*
+   Given a range of integers by its lower and upper limit,
+   construct a list of all prime numbers in that range.
    For example:
       allPrimes 10 2 ==> []
       allPrimes 2 10 ==> [2;3;5;7]
 *)
 
 let allPrimes (x:int) (y:int) : int list =
-  []
+    let rec helper x y =
+        if x <= y
+        then
+            if isPrime y
+            then (helper x (y-1))@[y]
+            else helper x (y-1)
+        else
+            [] in
+    helper x y
 ;;
 
 allPrimes 1 100;;
@@ -142,7 +165,7 @@ allPrimes 1 100;;
 (* - : int list = *)
 (* [1; 2; 3; 5; 7; 11; 13; 17; 19; 23; 29; 31; 37; 41; 43; 47; 53; 59; 61; 67; 71; 73; 79; 83; 89; 97] *)
 
-(* 
+(*
     Given a number, return its prime factors.
     For example:
       pfactors 6  ==> [2;3]
@@ -150,22 +173,42 @@ allPrimes 1 100;;
 *)
 
 let pfactors (n:int) : int list =
-  []
+    let rec helper n primes =
+        match primes with
+        | p::ps ->
+                if n mod p == 0
+                then p::(helper (n/p) primes)
+                else helper n ps
+        | [] -> [] in
+    helper n (allPrimes 2 n)
 ;;
 
 pfactors 315;;
 (* val pfactors : int -> int list = <fun> *)
 (* - : int list = [3; 3; 5; 7] *)
 
-(* 
-    Given a number, return a list of 
+(*
+    Given a number, return a list of
      unique prime factors and their occurrences.
     For example:
       pfactorsM 6  ==> [(2,1);(3,1)]
       pfactorsM 12 ==> [(2,2);(3,1)]
 *)
 let pfactorsM (n:int) : (int * int) list =
-  []
+    let factors = pfactors n in
+    let rec countFact p primes =
+        match primes with
+        | x::xs ->
+                let (c, xs) = countFact p xs in
+                if x == p then (1+c, xs) else (c, x::xs)
+        | [] -> (0, []) in
+    let rec counter primes =
+        match primes with
+        | x::xs ->
+                let (c, ps) = countFact x xs in
+                (x, 1+c)::(counter ps)
+        | [] -> [] in
+    counter factors
 ;;
 
 pfactorsM 315;;
@@ -173,11 +216,11 @@ pfactorsM 315;;
 (* - : (int * int) list = [(3, 2); (5, 1); (7, 1)] *)
 
 (*
-   Goldbach's conjecture says that every positive even number greater 
-   than 2 is the sum of two prime numbers. Example: 28 = 5 + 23. It is 
-   one of the most famous facts in number theory that has not been proved 
-   to be correct in the general case. It has been numerically confirmed 
-   up to very large numbers. Write a function to find the two prime 
+   Goldbach's conjecture says that every positive even number greater
+   than 2 is the sum of two prime numbers. Example: 28 = 5 + 23. It is
+   one of the most famous facts in number theory that has not been proved
+   to be correct in the general case. It has been numerically confirmed
+   up to very large numbers. Write a function to find the two prime
    numbers that sum up to a given even integer.
    For example:
       goldbach 4 ==> (2,2)
@@ -214,7 +257,7 @@ countL bt1;;
 (* val countL : 'a tree -> int = <fun> *)
 (* - : int = 3 *)
 
-(* 
+(*
    We can flatten a tree into a list in prefix fashion
    by putting value at node, then values of left subtreee,
    followed by values of right subtrees.
@@ -230,7 +273,7 @@ prefixBT bt1;;
 (* val prefixBT : 'a tree -> 'a list = <fun> *)
 (* - : int list = [1; 2; 3; 4; 5] *)
 
-(* 
+(*
    We can flatten a tree into a list in infix fashion
    by putting values of left subtreee, value at node,
    followed by values of right subtrees.
@@ -248,8 +291,8 @@ infixBT bt1;;
 (* A tree is perfectly balanced if either it is a leaf
    or it is a node with two subtrees of the same height and also
    perfectly balanced. Write a function that takes a height
-   value and then returning a perfect tree of that height with 
-   all its elements set to 1 
+   value and then returning a perfect tree of that height with
+   all its elements set to 1
   For example:
     perfectTree 2 ==> Node (1, Leaf 1, Leaf 1)
 *)
@@ -265,7 +308,7 @@ perfectTree 3;;
 
 (* HIGHER-ORDER *)
 
-(* 
+(*
    Given two lists, return a list of all possible
    pairs of the two lists.
    For example prod [1;2] [`a;`b] would
@@ -282,14 +325,14 @@ prod [1;2] [`a;`b;`c];;
 (* [(1, `a); (1, `b); (1, `c); (2, `a); (2, `b); (2, `c)] *)
 
 (* polymorphic rose tree *)
-type 'a roseTree = 
+type 'a roseTree =
   | NodeR of 'a * (('a roseTree) list)
 
 let rt2 = NodeR (1,[NodeR (2,[]);NodeR (3,[NodeR(4,[])]);NodeR(5,[])]);;
 
-(* 
+(*
    We can flatten a rosetree into a list in prefix fashion
-   by putting value at node, followed by values of each 
+   by putting value at node, followed by values of each
    of the subtrees.
    Implement a first-order version of this prefixRT
    method without using any higher-order functions.
@@ -313,8 +356,8 @@ prefixRT rt2;;
 
 prefixRT (NodeR(4,[NodeR (1,[]); NodeR (2,[])]));;
 
-(* 
-   write a higher-order counterpart for prefixRT 
+(*
+   write a higher-order counterpart for prefixRT
    Use higher-order function List.fold_right to help
    you in this method.
 *)
@@ -327,8 +370,8 @@ prefixRTHO rt2;;
 (* val prefixRTHO : 'a roseTree -> 'a list = <fun> *)
 (* - : int list = [1; 2; 3; 4; 5] *)
 
-(* 
-   write a higher-order counterpart for postfixRT 
+(*
+   write a higher-order counterpart for postfixRT
    Use higher-order function List.fold_right to help
    you in this method.
 *)
@@ -341,8 +384,8 @@ postfixRTHO rt2;;
 (* - : int list = [2; 4; 3; 5; 1] *)
 
 
-(* 
-   We can denote rose trees as strings of the following form: 
+(*
+   We can denote rose trees as strings of the following form:
     "a(b(d,e),c,f(g))".
    Write an OCaml function which generates such a string representation
    for rose tree.
@@ -355,7 +398,7 @@ let pr_args (pr:'a->string) (xs:'a list) : string =
     match xs with
       | [] -> failwith "pr_args must not have [] input"
       | [x] -> pr x
-      | x::xs -> (pr x)^","^(aux xs) 
+      | x::xs -> (pr x)^","^(aux xs)
   in aux xs;;
 
 let rec string_of_RT (pr:'a -> string) (xs:'a roseTree) : string =
