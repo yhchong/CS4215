@@ -1,0 +1,6 @@
+Loading ePL program ..
+  1+2*3+4
+  as +[+[IntConst(1),*[IntConst(2),IntConst(3)]],IntConst(4)]
+Type checking program ..
+  inferred type : Int
+Evaluating ==> IntConst(11)

@@ -1,0 +1,6 @@
+Loading ePL program ..
+  ~ ~ ~ 5
+  as ~[~[~[IntConst(5)]]]
+Type checking program ..
+  inferred type : Int
+Evaluating ==> IntConst(-5)

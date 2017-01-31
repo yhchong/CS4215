@@ -1,0 +1,6 @@
+Loading ePL program ..
+  false = \ true & false
+  as &[=[BoolConst(false),\[BoolConst(true)]],BoolConst(false)]
+Type checking program ..
+  inferred type : Bool
+Evaluating ==> BoolConst(false)

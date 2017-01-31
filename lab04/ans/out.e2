@@ -1,0 +1,6 @@
+Loading ePL program ..
+  false = 10 > 6 
+  as =[BoolConst(false),>[IntConst(10),IntConst(6)]]
+Type checking program ..
+  inferred type : Bool
+Evaluating ==> BoolConst(false)

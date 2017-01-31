@@ -1,0 +1,6 @@
+Loading ePL program ..
+  10 = 3 + 7
+  as =[IntConst(10),+[IntConst(3),IntConst(7)]]
+Type checking program ..
+  inferred type : Bool
+Evaluating ==> BoolConst(true)

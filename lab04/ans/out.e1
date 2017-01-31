@@ -1,0 +1,6 @@
+Loading ePL program ..
+  false = (\true) & false | (2+3 =4)
+  as |[&[=[BoolConst(false),\[BoolConst(true)]],BoolConst(false)],=[+[IntConst(2),IntConst(3)],IntConst(4)]]
+Type checking program ..
+  inferred type : Bool
+Evaluating ==> BoolConst(false)
