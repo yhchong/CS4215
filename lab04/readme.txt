@@ -28,7 +28,7 @@ Loading ePL program ..
 Type checking program ..
   inferred type : Bool
 Evaluating ==>
-!!! **ePL_inter.ml#22:inside \ 
+!!! **ePL_inter.ml#22:inside \
 !!! **ePL_inter.ml#32:inside ~ with :=
 !!! **ePL_inter.ml#32:inside ~ with :&
 !!! **ePL_inter.ml#32:inside ~ with :+

@@ -278,7 +278,7 @@ let testType e =
     | Some t -> print_endline ("  inferred type : "^(string_of_ePL_type t));
     | None -> print_endline ("  type error ")
 
-(* let _ = testCommand e2  *)
+(* let _ = testCommand e2 *)
 (* let _ = testCommand e2a  *)
 (* let _ = testCommand e2b  *)
 (* let _ = testCommand e3 *)

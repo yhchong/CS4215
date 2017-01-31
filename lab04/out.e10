@@ -1,6 +1,0 @@
-Loading ePL program ..
-  (2^3)^2
-  as ^[^[IntConst(2),IntConst(3)],IntConst(2)]
-Type checking program ..
-  inferred type : Int
-Evaluating ==> IntConst(64)

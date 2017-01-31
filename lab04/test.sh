@@ -7,4 +7,7 @@
 ./test_one.sh e7
 ./test_one.sh e8
 ./test_one.sh e9
-
+./test_one.sh e10
+./test_one.sh e11
+./test_one.sh e12
+./test_one.sh e13
