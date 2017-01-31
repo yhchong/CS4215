@@ -71,10 +71,7 @@ let ls3 = [3;6;7;3;4;8;3;3;3];;
 *)
 let rec findFirst (p:'a->bool) (xs:'a list) : 'a option =
     match xs with
-    | x::xs ->
-            if p x
-            then Some x
-            else findFirst p xs
+    | x::xs -> if p x then Some x else findFirst p xs
     | [] -> None
 ;;
 
