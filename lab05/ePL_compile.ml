@@ -37,6 +37,11 @@ let compile (e:ePL_expr) : eVML_inst list =
   in
   (helper e)@[DONE]
 
+let compile (e:ePL_expr) : eVML_inst list =
+    let pr1 = string_of_ePL in
+    let pr2 = string_of_eVML_list in
+    Debug.no_1 "compile" pr1 pr2 compile e
+
 
 (* output evm bytecode to a file *)
 let generate_bytecode(elist: eVML_inst list) (filename:string) =
