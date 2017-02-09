@@ -6,7 +6,7 @@ let string_of_eVML_list (xs:eVML_inst list) =
   pr_list string_of_eVML xs
 
 (* read evm bytecode from a file *)
-let read_bytecode (filename:string) : eVML_inst array = 
+let read_bytecode (filename:string) : eVML_inst array =
   let in_channel = open_in_bin filename in
   let elist = input_value in_channel in
   let _ = close_in in_channel in elist
@@ -25,15 +25,15 @@ let binary_operate (c:eVML_inst) (a1:int) (a2:int) : int =
   | MINUS -> a1-a2
   | TIMES -> a1*a2
   | DIV -> a1/a2
-  | OR -> 
+  | OR ->
     failwith "TO BE IMPLEMENTED"
-  | AND -> 
+  | AND ->
     failwith "TO BE IMPLEMENTED"
-  | EQ -> 
+  | EQ ->
     failwith "TO BE IMPLEMENTED"
-  | LT -> 
+  | LT ->
     failwith "TO BE IMPLEMENTED"
-  | GT -> 
+  | GT ->
     failwith "TO BE IMPLEMENTED"
   | _ -> failwith "not possible"
 
@@ -46,7 +46,7 @@ let binary_operate (c:eVML_inst) (a1:int) (a2:int) : int =
 let unary_operate (c:eVML_inst) (a1:int) : int =
   match c with
   | NEG -> -a1
-  | NOT -> 
+  | NOT ->
     failwith "TO BE IMPLEMENTED"
   | _ -> failwith "not possible"
 
@@ -61,13 +61,13 @@ let proc_inst (stk:int Stack.t) (c:eVML_inst) : unit =
   match c with
     | LDCI i -> Stack.push i stk
     | LDCB i -> Stack.push i stk
-    | PLUS | MINUS | TIMES | DIV | AND | OR 
+    | PLUS | MINUS | TIMES | DIV | AND | OR
     | GT | LT | EQ
-          -> 
+          ->
           let a2 = Stack.pop stk in
           let a1 = Stack.pop stk in
           Stack.push (x_add binary_operate c a1 a2) stk
-    | NEG | NOT -> 
+    | NEG | NOT ->
           let a1 = Stack.pop stk in
           Stack.push (x_add unary_operate c a1) stk
     | DONE -> ()
@@ -81,7 +81,7 @@ let eVML_mc (instArr:eVML_inst array) : int =
     match c with
       | DONE -> Stack.pop stk
       | _ -> (proc_inst stk c; execute (pc+1))
-  in execute 0 
+  in execute 0
 
 (* evm virtual machine implemented as a class *)
 class eVML (instSeq:eVML_inst list) =
@@ -90,7 +90,7 @@ class eVML (instSeq:eVML_inst list) =
      val stk = Stack.create ()
      val instArr = Array.of_list instSeq
      (* method to check if next inst is DONE *)
-     method finish () : bool = 
+     method finish () : bool =
        let c = Array.get instArr pc in
        c == DONE
      (* method to execute one step *)
@@ -109,11 +109,11 @@ class eVML (instSeq:eVML_inst list) =
 (* calling ePL parser *)
 let parse_file (filename:string) : (string * ePL_expr) =
   EPL_parser.parse_file filename
- 
+
 (* set up for command argument
    using Sys and Arg modules *)
 let usage = "usage: " ^ Sys.argv.(0) ^ " <filename>"
-let file = ref "" 
+let file = ref ""
 
 (* check that s is of form <fname>.epl *)
 (* return <fname> as result *)
@@ -123,7 +123,7 @@ let extract_filename (s:string) : string =
   let v = String.length s in
   if v<5 then
     failwith "filename at least one char"
-  else 
+  else
     let fn = String.sub s 0 (v-4) in
     let extn = String.sub s (v-4) 4 in
     if extn = ".epl" then fn
@@ -145,8 +145,8 @@ let test_extract_filename () =
 (* main program *)
 let main =
   (* Read the arguments of command *)
-  Arg.parse Debug.command_args (fun s -> file := s) usage; 
-  if String.length !file == 0 then print_endline usage else 
+  Arg.parse Debug.command_args (fun s -> file := s) usage;
+  if String.length !file == 0 then print_endline usage else
   let bytefn = !file^".evm" in
   let _ = print_endline ("Loading eVM code from .."^bytefn) in
   let instr = read_bytecode bytefn in
