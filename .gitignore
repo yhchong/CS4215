@@ -19,3 +19,10 @@ _build/
 setup.data
 setup.log
 .DS_Store
+
+*.swp
+a.out
+*.evm
+eplc
+evm
+
