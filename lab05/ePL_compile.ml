@@ -31,7 +31,9 @@ let compile (e:ePL_expr) : eVML_inst list =
       let s = x_add_1 helper arg in
       s@[trans_cmd op]
     | BinaryPrimApp (op,arg1,arg2) ->
-      failwith "TO BE IMPLEMENTED"
+      let s1 = x_add_1 helper arg1 in
+      let s2 = x_add_1 helper arg2 in
+      s1@s2@[trans_cmd op]
   in
   (helper e)@[DONE]
 
