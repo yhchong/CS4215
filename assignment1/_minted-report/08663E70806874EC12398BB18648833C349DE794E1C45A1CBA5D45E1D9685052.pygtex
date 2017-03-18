@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k}{def} \PYGdefault{n+nf}{pow}\PYGdefault{p}{(}\PYGdefault{n}{exp}\PYGdefault{p}{,} \PYGdefault{n}{base}\PYGdefault{o}{=}\PYGdefault{l+m+mi}{2}\PYGdefault{p}{):}
+    \PYGdefault{k}{return} \PYGdefault{n}{base}\PYGdefault{o}{**}\PYGdefault{n}{exp}
+\end{Verbatim}

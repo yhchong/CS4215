@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{o}{\PYGdefaultZsh{}} \PYGdefault{k}{let} \PYGdefault{n}{test} \PYGdefault{o}{\PYGdefaultZti{}}\PYGdefault{n}{x} \PYGdefault{o}{?(}\PYGdefault{n}{y}\PYGdefault{o}{=}\PYGdefault{l+m+mi}{1}\PYGdefault{o}{)} \PYGdefault{o}{=} \PYGdefault{n}{x} \PYGdefault{o}{+} \PYGdefault{n}{y}\PYGdefault{o}{;;}
+\PYGdefault{n+nc}{Characters} \PYGdefault{l+m+mi}{14}\PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{l+m+mi}{17}\PYGdefault{o}{:}
+\PYGdefault{n+nc}{Warning} \PYGdefault{l+m+mi}{16}\PYGdefault{o}{:} \PYGdefault{n}{this} \PYGdefault{n}{optional} \PYGdefault{n}{argument} \PYGdefault{n}{cannot} \PYGdefault{n}{be} \PYGdefault{n}{erased}\PYGdefault{o}{.}                                                \PYGdefault{k}{val}
+\PYGdefault{n}{test} \PYGdefault{o}{:} \PYGdefault{n}{x}\PYGdefault{o}{:}\PYGdefault{k+kt}{int} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{o}{?}\PYGdefault{n}{y}\PYGdefault{o}{:}\PYGdefault{k+kt}{int} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{k+kt}{int} \PYGdefault{o}{=} \PYGdefault{o}{\PYGdefaultZlt{}}\PYGdefault{k}{fun}\PYGdefault{o}{\PYGdefaultZgt{}}
+\end{Verbatim}

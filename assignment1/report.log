@@ -1,0 +1,343 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.21)  14 FEB 2017 10:40
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2015/01/31 v2.0 Yet another Pygments shim for LaTeX
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count87
+\FV@InFile=\read1
+\FV@TabBox=\box26
+\c@FancyVerbLine=\count88
+\FV@StepNumber=\count89
+\FV@OutFile=\write3
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count90
+\float@exts=\toks15
+\float@box=\box27
+\@float@everytoks=\toks16
+\@floatcapt=\box28
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count91
+\calc@Bcount=\count92
+\calc@Adimen=\dimen103
+\calc@Bdimen=\dimen104
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count93
+\calc@Cskip=\skip45
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2010/10/22 v0.4 Testing for the operating system
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2011/03/01 v1.6 Catch the contents of a file (HO)
+)
+runsystem(uname -s > "report.w18")...executed.
+
+
+(./report.w18)
+runsystem(rm -- "report.w18")...executed.
+
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2015/05/04 v2.2 e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count94
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write4
+\integerpart=\count95
+\decimalpart=\count96
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count97
+\output=\toks17
+\linenoprevgraf=\count98
+\linenumbersep=\dimen105
+\linenumberwidth=\dimen106
+\c@linenumber=\count99
+\c@pagewiselinenumber=\count100
+\c@LN@truepage=\count101
+\c@internallinenumber=\count102
+\c@internallinenumbers=\count103
+\quotelinenumbersep=\dimen107
+\bframerule=\dimen108
+\bframesep=\dimen109
+\bframebox=\box29
+LaTeX Info: Redefining \\ on input line 3056.
+)
+\minted@appexistsfile=\read2
+\FV@BreakIndent=\dimen110
+\FV@BreakSymbolSepLeft=\dimen111
+\FV@BreakSymbolSepRight=\dimen112
+\FV@BreakSymbolIndentLeft=\dimen113
+\FV@BreakSymbolIndentRight=\dimen114
+\c@FancyVerbLineBreakLast=\count104
+\FV@LineBox=\box30
+\FV@LineIndentBox=\box31
+\minted@bgbox=\box32
+\minted@code=\write5
+\c@minted@FancyVerbLineTemp=\count105
+\@float@every@listing=\toks18
+\c@listing=\count106
+)
+runsystem(mkdir -p "_minted-report")...executed.
+
+runsystem(which "pygmentize" && touch "report.aex")...executed.
+
+runsystem(rm "report.aex")...executed.
+
+
+(./_minted-report/default.pygstyle) (./report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count107
+
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count108
+\scratchdimen=\dimen115
+\scratchbox=\box33
+\nofMPsegments=\count109
+\nofMParguments=\count110
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count111
+\MPscratchDim=\dimen116
+\MPnumerator=\count112
+\makeMPintoPDFobject=\count113
+\everyMPtoPDFconversion=\toks20
+))
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 8.
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/D74A242643C43BB70661A4E75F9FEE431F8B129FB5368E45C077DE043B5DC
+FBD.pygtex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/E723A36B860B904E8B42A86082B7CE511F8B129FB5368E45C077DE043B5DC
+FBD.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/21FBD9B3D5C1267F323E3F693C9F09AF1F8B129FB5368E45C077DE043B5DC
+FBD.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/E7556DA057F10A889214BA155FED7474349DE794E1C45A1CBA5D45E1D9685
+052.pygtex [1
+
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/9E1193377DFF513AA0771ECC7B2AAD9B1F8B129FB5368E45C077DE043B5DC
+FBD.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/3A6094DCEC51AE2CB2A8396A3D3669C21F8B129FB5368E45C077DE043B5DC
+FBD.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/519F5A44FD4DDC600586A3E6FCC1322D1F8B129FB5368E45C077DE043B5DC
+FBD.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/4301737D04FB60AF64482A7EDA862C181F8B129FB5368E45C077DE043B5DC
+FBD.pygtex [2])
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/48F609FEAD3A375D70A3DC57DF02DF251F8B129FB5368E45C077DE043B5DC
+FBD.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/DCACE7CDB0D9817102921F186EE7D39C1F8B129FB5368E45C077DE043B5DC
+FBD.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/08663E70806874EC12398BB18648833C349DE794E1C45A1CBA5D45E1D9685
+052.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/BEC75551F876F7D299A5C14E26791800349DE794E1C45A1CBA5D45E1D9685
+052.pygtex [3])
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/25A2900EAA85F2DF6E1E5B532D246C7A349DE794E1C45A1CBA5D45E1D9685
+052.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/50C37350588AB9B6ECCA84E50D0D33BB1F8B129FB5368E45C077DE043B5DC
+FBD.pygtex)
+\openout3 = `report.pyg'.
+
+
+(./_minted-report/0FF86CEF4CED08D7941148344E7773FF1F8B129FB5368E45C077DE043B5DC
+FBD.pygtex) [4]
+Overfull \hbox (9.223pt too wide) in paragraph at lines 226--227
+[]\OT1/cmr/m/n/10 https://caml.inria.fr/pub/docs/manual-ocaml/lablexamples.html
+ (Ac-cessed
+ []
+
+
+Overfull \hbox (3.88966pt too wide) in paragraph at lines 227--228
+[]\OT1/cmr/m/n/10 https://realworldocaml.org/v1/en/html/variables-and-functions
+.html (Ac-
+ []
+
+runsystem(rm "report.pyg")...executed.
+
+[5] (./report.aux) ) 
+Here is how much of TeX's memory you used:
+ 3964 strings out of 493089
+ 68399 string characters out of 6134842
+ 163378 words of memory out of 5000000
+ 7379 multiletter control sequences out of 15000+600000
+ 7448 words of font info for 27 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 37i,6n,35p,819b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb>
+Output written on report.pdf (5 pages, 82195 bytes).
+PDF statistics:
+ 40 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

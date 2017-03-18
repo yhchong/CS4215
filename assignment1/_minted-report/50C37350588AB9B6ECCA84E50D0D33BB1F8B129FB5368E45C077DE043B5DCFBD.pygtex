@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{o}{\PYGdefaultZsh{}} \PYGdefault{k}{let} \PYGdefault{n}{f} \PYGdefault{o}{?}\PYGdefault{n}{x1} \PYGdefault{n}{x2} \PYGdefault{o}{=} \PYGdefault{n}{x1}\PYGdefault{o}{;;}
+\PYGdefault{k}{val} \PYGdefault{n}{f} \PYGdefault{o}{:} \PYGdefault{o}{?}\PYGdefault{n}{x1}\PYGdefault{o}{:}\PYGdefault{k}{\PYGdefaultZsq{}}\PYGdefault{n}{a} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{k}{\PYGdefaultZsq{}}\PYGdefault{n}{b} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{k}{\PYGdefaultZsq{}}\PYGdefault{n}{a} \PYGdefault{n}{option} \PYGdefault{o}{=} \PYGdefault{o}{\PYGdefaultZlt{}}\PYGdefault{k}{fun}\PYGdefault{o}{\PYGdefaultZgt{}}
+\PYGdefault{o}{\PYGdefaultZsh{}} \PYGdefault{n}{f} \PYGdefault{l+m+mi}{1}\PYGdefault{o}{;;}
+\PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{o}{:} \PYGdefault{k}{\PYGdefaultZsq{}}\PYGdefault{n}{a} \PYGdefault{n}{option} \PYGdefault{o}{=} \PYGdefault{n+nc}{None}
+\PYGdefault{o}{\PYGdefaultZsh{}} \PYGdefault{n}{f} \PYGdefault{o}{\PYGdefaultZti{}}\PYGdefault{n}{x1}\PYGdefault{o}{:}\PYGdefault{l+m+mi}{2} \PYGdefault{l+m+mi}{1}\PYGdefault{o}{;;}
+\PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{o}{:} \PYGdefault{k+kt}{int} \PYGdefault{n}{option} \PYGdefault{o}{=} \PYGdefault{n+nc}{Some} \PYGdefault{l+m+mi}{2}
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k}{let} \PYGdefault{k}{rec} \PYGdefault{n}{pow2} \PYGdefault{o}{\PYGdefaultZti{}}\PYGdefault{n}{base} \PYGdefault{o}{\PYGdefaultZti{}}\PYGdefault{n}{exp} \PYGdefault{o}{=}
+    \PYGdefault{k}{if} \PYGdefault{n}{exp} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{0}
+    \PYGdefault{k}{then} \PYGdefault{l+m+mi}{1}
+    \PYGdefault{k}{else} \PYGdefault{n}{base} \PYGdefault{o}{*} \PYGdefault{n}{pow2} \PYGdefault{o}{\PYGdefaultZti{}}\PYGdefault{n}{exp}\PYGdefault{o}{:(}\PYGdefault{n}{exp}\PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{l+m+mi}{1}\PYGdefault{o}{)} \PYGdefault{o}{\PYGdefaultZti{}}\PYGdefault{n}{base}\PYGdefault{o}{:}\PYGdefault{n}{base}
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{o}{\PYGdefaultZgt{}\PYGdefaultZgt{}\PYGdefaultZgt{}} \PYGdefault{n+nb}{pow}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{3}\PYGdefault{p}{)}
+\PYGdefault{l+m+mi}{8}
+\PYGdefault{o}{\PYGdefaultZgt{}\PYGdefaultZgt{}\PYGdefaultZgt{}} \PYGdefault{n+nb}{pow}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{3}\PYGdefault{p}{,} \PYGdefault{l+m+mi}{2}\PYGdefault{p}{)}
+\PYGdefault{l+m+mi}{8}
+\end{Verbatim}
