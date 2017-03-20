@@ -65,11 +65,38 @@ let compile (e:sPL_expr) : sVML_prog_sym   =
                 | _ -> (v,-1)) fvs in
             ([LDF (fvs_n,arity,l_fn)], (((LABEL l_fn)::s1)@[RTN]@p1))
       | Cond (e1,e2,e3) ->
-            failwith "TO BE IMPLEMENTED"
+            let (s1, p1) = helper ce e1 in
+            let (s2, p2) = helper ce e2 in
+            let (s3, p3) = helper ce e3 in
+            let l1 = labels # fresh_id in
+            let l2 = labels # fresh_id in
+            (s1@[JOF l1]@s2@[GOTO l2]@[LABEL l1]@s3@[LABEL l2], p1@p2@p3)
       | Appln (f,_,args) ->
-            failwith "TO BE IMPLEMENTED"
+              let arg_val = List.map (fun arg -> helper ce arg) args in
+              let s = List.rev (List.fold_left (fun a (s, p) -> a@s) [] arg_val) in
+              let p = List.rev (List.fold_left (fun a (s, p) -> a@p) [] arg_val) in
+              let arity = List.length args in
+              let (fs, fp) = helper ce f in
+              (s@fs@[CALL arity], fp@p)
       | RecFunc (t,f,vs,body) ->
-            failwith "TO BE IMPLEMENTED"
+              let l_fn = labels # fresh_id in
+              let fvs = diff (fv body) vs in
+              let all_vs = fvs@vs in
+              let new_ce = enum_cenv all_vs 0 in
+              let arity = List.length vs in
+              let (s1, p1) = helper new_ce body in
+              print_string "Hi\n";
+              let _ = List.map (fun (v, i) -> Printf.printf "%s:%d " v i; v) new_ce in
+              print_string "Hi\n";
+              let fvs_n = List.map
+                (fun v -> match (Environ.get_val ce v) with
+                  | Some i ->Printf.printf "%s:%i " v i;(v,i)
+                  | _ -> (v,-1)) fvs in
+              let fvs_n = List.filter (fun (v, _) -> v != f) fvs_n in
+              print_string "\n";
+              let _ = List.map (fun (v, i) -> Printf.printf "%s:%d " v i; v) fvs_n in
+              print_string "\n";
+              ([LDFR (fvs_n, (f, 10), arity,l_fn)], (((LABEL l_fn)::s1)@[RTN]@p1))
   in
   let (main_code,proc_code) = (helper [] e)
   in main_code@(DONE::proc_code)

@@ -46,7 +46,7 @@ sPL_parser.cmo:
 
 splt.byte: 
 	@ocamlbuild $(OBB_FLAGS) sPL_type_m.byte
-	cp -u _build/sPL_type_m.byte splt
+	cp _build/sPL_type_m.byte splt
 
 # splt.native:
 # 	@ocamlbuild $(OBN_FLAGS) sPL_type_m.native
@@ -54,20 +54,20 @@ splt.byte:
 
 spli.byte: 
 	@ocamlbuild $(OBB_FLAGS) sPL_inter1.byte sPL_inter2.byte
-	cp -u _build/sPL_inter1.byte spli
-	cp -u _build/sPL_inter2.byte spli2
+	cp _build/sPL_inter1.byte spli
+	cp _build/sPL_inter2.byte spli2
 
 svm.byte: xdebug.cppo
 	@ocamlbuild $(OBB_FLAGS) sVM_exec.byte
-	cp -u _build/sVM_exec.byte svm
+	cp _build/sVM_exec.byte svm
 
 svm2.byte:
 	@ocamlbuild $(OBB_FLAGS) sVM_exec2.byte
-	cp -u _build/sVM_exec2.byte svm2
+	cp _build/sVM_exec2.byte svm2
 
 splc.byte: xdebug.cppo
 	@ocamlbuild $(OBB_FLAGS) sPL_compile.byte
-	cp -u _build/sPL_compile.byte splc
+	cp _build/sPL_compile.byte splc
 
 # spli.native:
 # 	@ocamlbuild $(OBN_FLAGS) sPL_inter1.native sPL_inter2.native

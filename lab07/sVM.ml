@@ -9,13 +9,13 @@ type ('label,'sym) sVML_inst =
   | LDCI of int
   | LDCB of bool
   | PLUS | MINUS | TIMES | DIV | AND | NEG
-  | NOT | OR | LT | GT | EQ | DONE 
+  | NOT | OR | LT | GT | EQ | DONE
   | NOP
   | GOTO of 'label
   | JOF of 'label
   | LD of 'sym
-  | CALL of int 
-  | TAILCALL of int 
+  | CALL of int
+  | TAILCALL of int
   | RTN
   | LDF of 'sym list * int (* * 'sym list *) * 'label
         (* glob_vars * parameters * address *)
@@ -26,10 +26,10 @@ type ('label,'sym) sVML_inst =
 type value_mc =
   | BOT
       (* denotes an error *)
-  | VInt of int 
+  | VInt of int
   | VBool of bool
-  | CLS of int * int * var_env 
-        (* addr * arity * global var values *) 
+  | CLS of int * int * var_env
+        (* addr * arity * global var values *)
       (* denotes a closure with its environment *)
 
 and var_env = value_mc array
@@ -71,10 +71,10 @@ let string_of_sVML pr_label pr_sym x =
     | CALL n -> "CALL "^(string_of_int n)
     | TAILCALL n -> "TAILCALL "^(string_of_int n)
     | RTN -> "RTN"
-    | LDF (gvs,a,(* vs, *)l) -> 
+    | LDF (gvs,a,(* vs, *)l) ->
           let pr = pr_triple (pr_list pr_sym) string_of_int pr_label in
           ("LDF"^pr(gvs,a,l))
-    | LDFR (gvs,f,a,(* vs, *)l) -> 
+    | LDFR (gvs,f,a,(* vs, *)l) ->
           let gvs = (f::gvs) in
           let pr = pr_triple (pr_list pr_sym) string_of_int pr_label in
           ("LDFR"^pr(gvs,a,l))
