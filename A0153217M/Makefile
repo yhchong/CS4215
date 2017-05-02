@@ -20,6 +20,8 @@ OBB_FLAGS = -no-links -libs $(LIBSB) -cflags $(FLAGS) -lflags $(FLAGS) -lexflag 
 OBBC_FLAGS = -no-links -libs $(LIBSB) -cflags $(FLAGS) -lflags $(FLAGS) -lexflag -q -yaccflag -v  -j $(JOBS) $(CPPO_FLAGS)
 OBN_FLAGS = -no-links -libs $(LIBSN) -cflags $(FLAGS) -lflags $(FLAGS) -lexflag -q -yaccflag -v  -j $(JOBS) $(CPPO_FLAGS)
 
+proj: parser lab07
+
 all: lab07
 
 byte: lab07
@@ -39,9 +41,8 @@ lab07 : splc.byte svm.byte
 lab07b : splc.byte svm2.byte
 
 
-parser : sPL_parser.cmo
 
-proj: splc.byte svm.byte sPL_parser.cmo
+parser : sPL_parser.cmo
 
 sPL_parser.cmo:
 	@ocamlbuild $(OBB_FLAGS) sPL_parser.cmo

@@ -1,3 +1,0 @@
-fun {int -> int -> int} x y -> 
-   x - y
-end 7 8

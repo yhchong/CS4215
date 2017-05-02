@@ -1,0 +1,16 @@
+let {{relationtype hej:bool noms:int davit:int end}} r = 
+relation {relationtype hej:bool noms:int davit:int end}
+    row true; 1; 2; end
+    row true; 2; 2; end
+    row true; 3; 2; end
+end
+{{relationtype hej:bool uni:int end}} q =
+relation {relationtype hej:bool uni:int end}
+    row true; 3; end
+    row false; 3; end
+    row false; 5; end
+end
+in
+{{relationtype hej:bool noms:int davit:int uni:int end}}
+r@q
+end

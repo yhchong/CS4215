@@ -1,4 +1,0 @@
-let {int->int->int} f =
-  (fun {int->int->int} x 
-      -> (fun {int->int} y -> x+y end) end)
-in {int->int} (fun {int->int} pa -> f 4 pa end) end

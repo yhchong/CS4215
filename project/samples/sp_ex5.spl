@@ -1,0 +1,5 @@
+relation {relationtype hej:bool noms:int davit:int end}
+    row true; 1; 2; end
+    row true; 2; 2; end
+end
+# hej noms

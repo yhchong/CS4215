@@ -1,0 +1,2 @@
+<{sPL_parser}.ml>: pp(camlp4of)
+not(<{sPL_parser}>): pp(cppo -I ../ -D TRACE)

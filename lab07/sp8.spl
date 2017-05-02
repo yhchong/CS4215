@@ -1,5 +1,0 @@
-let {int->int}
-    square = fun {int->int} x -> x * x end
-in {int}
-    (fun {int -> int} x -> 4 * (square x) end 3)
-end

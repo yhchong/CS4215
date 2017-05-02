@@ -1,3 +1,0 @@
-fun {int -> int} x -> 
-   x * 3
-end 5

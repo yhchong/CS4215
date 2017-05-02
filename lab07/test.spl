@@ -1,0 +1,5 @@
+fun {int -> int} x ->
+    fun {int -> int} y ->
+        x+3*y
+    end x
+end 3

@@ -1,0 +1,8 @@
+relation {relationtype test:int test2:bool hej:int end}
+row 1; true; 2; end
+row 2; true; 3; end
+row 2; true; 4; end
+row 3; true; 5; end
+row 2; true; 7; end
+row 2; true; 4; end
+end

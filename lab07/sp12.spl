@@ -1,3 +1,0 @@
-fun {(int->int)->int->int} x y -> x y end 
-fun {int->int} x -> x+1 end 
-3

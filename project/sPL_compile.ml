@@ -33,6 +33,110 @@ let enum_cenv xs n =
       | x::xs -> (x,n)::(aux xs (n+1))
   in aux xs n
 
+let rec get_join_type v u = match v, u with
+    | v, (u::us) ->
+            let res = get_join_type v us in
+            if List.mem u v
+            then res
+            else u::res
+    | _, [] -> []
+
+
+let compare_rows t1 t2 r1 r2 t =
+    let rec get_tag t1 row tag =
+        match t1, row with
+        | t::ts, v::vs ->
+                if tag=t then (true, v)
+                else get_tag ts vs tag
+        | [], [] -> (false, IntConst 42) in (*42 dummy value*)
+    let rec matching r1 r2 ts =
+        match ts with
+        | t::ts ->
+            let succ1, d1 = get_tag t1 r1 t in
+            let succ2, d2 = get_tag t2 r2 t in
+            if succ1 && succ2
+            then d1=d2 && matching r1 r2 ts
+            else matching r1 r2 ts
+        | [] -> true in
+    let rec get_unique t2 r2 =
+        match t2, r2 with
+        | t::ts, r::rs ->
+            if List.mem t t1
+            then get_unique ts rs
+            else r::(get_unique ts rs)
+        | [], [] -> [] in
+    Printf.printf "\nComparing rows\n";
+    if matching r1 r2 t
+    then (true, r1@(get_unique t2 r2))
+    else (false, [])
+
+let rec check_row t1 t2 r rs t =
+    match rs with
+    | x::xs ->
+            let succ, data = compare_rows t1 t2 r x t in
+            if succ then data::(check_row t1 t2 r xs t)
+            else check_row t1 t2 r xs t
+    | [] -> []
+
+let rec unique exps =
+    match exps with
+    | e::es ->
+            if List.mem e es
+            then unique es
+            else e::(unique es)
+    | [] -> []
+
+let perform_join t1 t2 exps1 exps2 =
+    let rec helper t1 t2 exps1 exps2 t =
+        (match exps1 with
+        | v::vs -> (check_row t1 t2 v exps2 t)@(helper t1 t2 vs exps2 t)
+        | _ -> []) in
+    let t = t1@(get_join_type t1 t2) in
+    let rows = helper t1 t2 exps1 exps2 t in
+    let rows = unique rows in
+    Rel(RelType(t), rows)
+
+let rec perform_proj t exps ids =
+    let rec mem t ids =
+        match t with
+        | (id, _) -> List.mem id ids in
+    let rec get_rel_type v u = match v with
+        | v::vs ->
+                if mem v u
+                then v::(get_rel_type vs u)
+                else get_rel_type vs u
+        | [] -> [] in
+    let rec check_row t row =
+        match t, row with
+        | t::ts, elem::rest->
+                if mem t ids
+                then elem::(check_row ts rest)
+                else check_row ts rest
+        | [], [] -> [] in
+    let rec helper t exps =
+        match exps with
+        | exp::exps -> (check_row t exp)::(helper t exps)
+        | [] -> [] in
+    let t1 = get_rel_type t ids in
+    let exps = helper t exps in
+    let exps = unique exps in
+    Rel(RelType(t1), exps)
+
+let rec run (e:sPL_expr) =
+    match e with
+    | BinaryPrimApp (op, e1, e2) ->
+            (match e1, e2 with
+                | Rel(RelType(t1), exps1), Rel(RelType(t2), exps2) ->
+                        if op="@"
+                        then perform_join t1 t2 exps1 exps2
+                        else failwith "Unsupported op"
+                | _, _ -> failwith "Unsupported type")
+    | Proj (e, ids) ->
+            match e with
+            | Rel(RelType (t1), exps) ->
+                    perform_proj t1 exps ids
+    | _ -> failwith "Unsupported run"
+
 (* compiling to eVML instrs *)
 let compile (e:sPL_expr) : sVML_prog_sym   =
   let rec helper (ce:c_env) (e:sPL_expr) : sVML_prog_sym * sVML_prog_sym  =
@@ -209,18 +313,26 @@ let main =
     let (s,p) = Genparse.parse_file !VarGen.file in
     let _ = print_endline ("  "^s) in
     let _ = print_endline ("  as "^(S.string_of_sPL p)) in
+    Printf.printf "Done\n";
     let _ = print_endline "TYPE CHECKING program .." in
-    Printf.printf("Hi");
     let (v,np) = type_infer [] p in
     match v with
       | None -> print_endline " ==> type error detected"
       | Some t ->
-            print_endline (" ==> inferred type "^(S.string_of_sPL_type t));
+          print_endline (" ==> inferred type "^(S.string_of_sPL_type t));
             let _ = print_string "TRANSFORMING ==> " in
             let np = trans_exp np in
             let _ = print_endline (string_of_sPL np) in
             let fn = extract_filename !VarGen.file in
-            let bytefn = fn^".svm" in
+            if true then
+                let _ = print_string "RUNNING ==> " in
+                let np = run np in
+                let _ = print_endline (string_of_sPL np) in
+                print_endline "Done\n"
+            else
+              let _ = print_endline (string_of_sPL np) in
+              Printf.printf "Done\n"
+            (*let bytefn = fn^".svm" in
             let _ = print_string ("COMPILING ==> "^bytefn^"\n") in
             let r = compile np in
             let _ = print_endline (string_of_sVML_list_sym r) in
@@ -236,4 +348,4 @@ let main =
             let _ = print_endline (string_of_sVML_list s) in
             let s = filter_label s in
             let _ = generate_bytecode s bytefn in
-            ()
+            ()*)
