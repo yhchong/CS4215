@@ -324,7 +324,7 @@ let main =
             let np = trans_exp np in
             let _ = print_endline (string_of_sPL np) in
             let fn = extract_filename !VarGen.file in
-            if true then
+            if false then
                 let _ = print_string "RUNNING ==> " in
                 let np = run np in
                 let _ = print_endline (string_of_sPL np) in
